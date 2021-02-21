@@ -13,7 +13,7 @@ var startGame = function() {
       //picks new enemy pulled from enemyInfo array
       var pickedEnemyObject = enemyInfo[i];
       //set enemy health
-      pickedEnemyObject.health = randomNumber(40, 60);
+      pickedEnemyObject.health = randomNumber(4, 6);
       //pass pickedEnemyObject object variable's value into fight() function to assume the enemy parameter
       fight(pickedEnemyObject);
       //if player is not alive, break loop and run endGame() function
@@ -111,30 +111,27 @@ var fight = function(enemy){
   } 
 };
 
-//shop function
-var shop = function() {
-  var shopOptionPrompt = window.prompt(
-    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
-  );
+//shop function*/
+
+var shop = function() { 
+  var shopOptionPrompt = window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE.");
+  shopOptionPrompt = parseInt(shopOptionPrompt);
   switch (shopOptionPrompt) {
-    case "REFILL":
-    case "refill":
+    case 1:
       if (playerInfo.money >= 7) {
       playerInfo.refillHealth();
       } else {
         window.alert("You don't have enough money!");
       }
       break;
-    case "UPGRADE":
-    case "upgrade":
+    case 2:
       if (playerInfo.money >= 7) {
       playerInfo.upgradeAttack();
       } else {
         window.alert("You don't have enough money!");
       }
       break;
-    case "LEAVE":
-    case "leave":
+    case 3:
       window.alert("Leaving the store.");
       break;
 
