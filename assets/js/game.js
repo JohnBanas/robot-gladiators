@@ -30,9 +30,15 @@ var endGame = function() {
   window.alert("The game has now ended. Let's see how you did!");
   //check local storage for high score
   var highScore = localStorage.getItem("highscore");
+
+  highScore = highScore || 0
+  //this is a short circuit conditional statement
+  //it was originally written as:
+  /* 
   if (highScore === null) {
     highScore = 0;
   }
+  */
   //if the player has more money than the high score then that becomes the new high score
   if (playerInfo.money > highScore) {
     localStorage.setItem("highscore", playerInfo.money);
